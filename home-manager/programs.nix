@@ -2,7 +2,7 @@
 
 {
 home.packages = with pkgs; [
-	anki obsidian
+	anki obsidian bat zellij lazygit lazydocker
 ];
   programs.git = {
     enable = true;
@@ -10,6 +10,9 @@ home.packages = with pkgs; [
     userEmail = "zander@polsons.info";
   };
 
-  programs.bat.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 }
 

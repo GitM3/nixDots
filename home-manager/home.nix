@@ -3,14 +3,15 @@
   lib,
   config,
   pkgs,
-  hyprland, hy3,
+ # hyprland, hy3,
   ...
 }: {
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-#    ./programs
-    ./hyprland.nix
+    ./programs.nix
+    ./shell.nix
+#    ./hyprland.nix
   ];
 
   nixpkgs = {

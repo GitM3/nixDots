@@ -10,21 +10,21 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Hyprland
     
-    hyprland = {
-      url = "github:hyprwm/Hyprland?submodules=1&ref=v0.41.0";
-    };
+  #  hyprland = {
+  #    url = "github:hyprwm/Hyprland?submodules=1&ref=v0.41.0";
+  #  };
 
-    hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.41.0";
-      inputs.hyprland.follows = "hyprland";
-    };
+  #  hy3 = {
+  #    url = "github:outfoxxed/hy3?ref=hl0.41.0";
+  #    inputs.hyprland.follows = "hyprland";
+  #  };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    hyprland, hy3, 
+    # hyprland, hy3, 
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -41,9 +41,9 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "zander@nixos" = home-manager.lib.homeManagerConfiguration {
+      "zander" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs ;};
+        extraSpecialArgs = {inherit inputs outputs ;};#hyprland hy3
         # > Our main home-manager configuration file <
         modules = [./home-manager/home.nix];
       };
